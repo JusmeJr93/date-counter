@@ -1,13 +1,91 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  /* Set a universally appealing font */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Ensure the entire viewport is covered */
+  background-color: #f0f0f0;
+  /* Soft background color for minimal eye strain */
+  color: #333;
+  /* Opt for darker grey text for readability */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*styling for flex containers */
+.steps,
+.counter,
+.date {
+  display: flex;
+  flex-direction: column;
+  /* Organize content in a vertical layout */
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  /* Utilize full width for better alignment */
+  max-width: 360px;
+  /* Max width for better control */
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  margin-bottom: 20px;
+  /* Spacing between each block */
+}
+
+/* Button enhancements */
+.steps button,
+.counter button {
+  padding: 10px 15px;
+  /* More padding for better clickability */
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  /* Smooth transition for button interactions */
+}
+
+.steps button:hover,
+.counter button:hover {
+  background-color: #0056b3;
+}
+
+.steps button:focus,
+.counter button:focus {
+  outline: 2px solid #0056b3;
+}
+
+/* Text styling in steps and counter */
+.steps span,
+.counter span {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* Date display styling */
+.date {
+  font-style: italic;
+  color: #666;
+}
+
+.date p {
+  font-size: 20px;
+  color: #444;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+
+  .steps,
+  .counter,
+  .date {
+    max-width: 100%;
+    padding: 10px;
+  }
 }

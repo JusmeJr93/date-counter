@@ -1,25 +1,83 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+
+// Main App Component
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter />
     </div>
   );
 }
 
-export default App;
+// Counter Component
+function Counter() {
+  // Step State and Handlers
+  const [step, setStep] = useState(1);
+
+  function handleMinusStep() {
+    if (step > 1) setStep((s) => s - 1);
+  }
+
+  function handlePlusStep() {
+    setStep((s) => s + 1);
+  }
+
+  // Count State and Handlers
+  const [count, setCount] = useState(0);
+
+  function handleMinusCount() {
+    setCount((c) => c - step);
+  }
+
+  function handlePlusCount() {
+    setCount((c) => c + step);
+  }
+
+  // Date Preview Function
+  function datePreview() {
+    const today = new Date();
+
+    if (count === 0) return <p>Today is {today.toDateString()}</p>;
+
+    const targetDate = new Date(today);
+    targetDate.setDate(today.getDate() + count);
+
+    if (count < 0) {
+      return (
+        <p>
+          {count === -1 ? "Yesterday" : `${-1 * count} days ago`} was{" "}
+          {targetDate.toDateString()}
+        </p>
+      );
+    }
+
+    if (count > 0) {
+      return (
+        <p>
+          {count === 1 ? "Tomorrow" : `${count} days from today`} is{" "}
+          {targetDate.toDateString()}
+        </p>
+      );
+    }
+  }
+
+  // Render Component
+  return (
+    <div>
+      <div className="steps">
+        <button onClick={handleMinusStep}>-</button>
+        <span> Step: {step} </span>
+        <button onClick={handlePlusStep}>+</button>
+      </div>
+      <br />
+      <div className="counter">
+        <button onClick={handleMinusCount}>-</button>
+        <span> Count: {count} </span>
+        <button onClick={handlePlusCount}>+</button>
+      </div>
+      <br />
+      <div className="date">{datePreview()}</div>
+    </div>
+  );
+}
