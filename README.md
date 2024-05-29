@@ -11,5 +11,5 @@ This project is built with React and CSS, and it's an excellent starting point f
 - **Date Calculation:** Displays how many days from today (future or past) based on the count.
 
 # Preview
-See it in action: https://date-counter-eight.vercel.app/
+See it in action: [Date Counter App](https://date-counter-eight.vercel.app/)
 
